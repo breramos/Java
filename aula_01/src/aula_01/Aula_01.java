@@ -16,7 +16,7 @@ public class Aula_01 {
 		
 		System.out.println("Digite o seu nome: ");
 		nome = leia.nextLine();
-		//usou-se nextLine porque é o método para ler string da classe Scanner
+		//Usou-se nextLine porque é o método para ler string da classe Scanner
 		
 		System.out.println("Digite o primeiro número: ");
 		numero1 = leia.nextDouble();
