@@ -24,9 +24,16 @@ public class Aula_01 {
 		System.out.println("Digite o segundo número: ");
 		numero2 =  leia.nextDouble();
 		
-		System.out.println("Adição: " + df.format((numero1 + numero2)));
-		System.out.println("Subtração: " + df.format((numero1 - numero2)));
-		System.out.println("Multiplicação: " + df.format((numero1 * numero2)));
+		System.out.println("Adição: " + df.format(numero1 + numero2));
+		System.out.println("Subtração: " + df.format(numero1 - numero2));
+		System.out.println("Multiplicação: " + df.format(numero1 * numero2));
+		
+		if(numero2 != 0) {
+			System.out.println("Divisão: " + df.format(numero1 / numero2));
+		} else {
+			System.out.println("Não existe divisão por zero!");
+		}
+		
 		System.out.println("Potenciação: " + df.format(Math.pow(numero1, numero2)));
 		System.out.println("Radiciação: " + df.format(Math.sqrt(numero1)));
 		System.out.println("Radiciação: " + df.format(Math.sqrt(numero2)));
