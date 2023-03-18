@@ -37,6 +37,7 @@ public class Lista1Exercicio4 {
 		else if(classeAnimal == "invertebrado" && tipoAnimal == "anelideo" && tipoAlimentacao == "hematofago")
 			System.out.println("Você escolheu a sanguessuga!");
 		
+		
 		leia.close();
 	}
 
