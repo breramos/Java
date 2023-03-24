@@ -74,11 +74,6 @@ public class Conta {
 	}
 	
 	
-	
-	
-	
-	
-	
 	public void visualizar() {
 		
 		String tipo = "";
@@ -97,14 +92,6 @@ public class Conta {
 		System.out.println("Nome do titular da conta: " + this.titular);
 		System.out.println("Saldo da conta: " + this.saldo);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
