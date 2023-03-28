@@ -15,6 +15,10 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
+	
+	public Conta () { } //usado para testes de software
+	/*polimorfismo de sobrecarga: dois métodos com o mesmo nome, na mesma classe, com assinaturas diferentes
+	(parâmetros diferentes); retorna valores nulos quando utilizado p criar algum objeto na classe main*/
 
 	public int getNumero() {
 		return numero;

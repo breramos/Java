@@ -9,12 +9,13 @@ public class Cliente {
 	private String dataNasc;
 	
 	
-	public Cliente(int id, String nome, String email, String telefone, String dataNasc) {
+	public Cliente(int id, String nome, String dataNasc, String email, String telefone) {
 		this.id = id;
 		this.nome = nome;
+		this.dataNasc = dataNasc;
 		this.email = email;
 		this.telefone = telefone;
-		this.dataNasc = dataNasc;
+		
 	}
 
 
@@ -26,7 +27,6 @@ public class Cliente {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getNome() {
 		return nome;
@@ -74,11 +74,11 @@ public class Cliente {
 		System.out.println("                DADOS DO CLIENTE                ");
 		System.out.println("************************************************");
 		System.out.println("Número de identificação pessoal: " + this.id);
-		System.out.println("Nome do Cliente: " + this.nome);
+		System.out.println("Nome do cliente: " + this.nome);
 		System.out.println("Data de nascimento: " + this.dataNasc);
 		System.out.println("Endereço de e-mail: " + this.email);
 		System.out.println("Telefone para contato: " + this.telefone);
-		System.out.println("\n");
+		
 	}
 	
 	
