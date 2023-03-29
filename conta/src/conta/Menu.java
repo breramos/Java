@@ -17,9 +17,8 @@ public class Menu {
 		String titular;
 		float saldo, limite, valor;
 		
-		Conta c1 = new Conta(1,123,1,"Jennifer", 100000.00f);
-		
-		c1.visualizar();
+		/*Conta c1 = new Conta(1,123,1,"Jennifer", 100000.00f); não é possível instanciar objetos dessa classe, porque ela se tornou abstrata
+		c1.visualizar();*/
 		
 		ContaCorrente cc1 = new ContaCorrente(2,123,1,"Gabriel Machado", 10000.00f, 1000.00f);
 		cc1.visualizar();

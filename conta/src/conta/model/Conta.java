@@ -1,7 +1,8 @@
 package conta.model;
 
-public class Conta {
-
+public abstract class Conta {
+	/*Classe abstract tem que ser genérica, servir de base para criar as classe filhas e suas heranças.
+	Como se fosse uma criação de contrato: tem que usar tudo que está na classe mãe*/
 	private int numero;
 	private int agencia;
 	private int tipo;
