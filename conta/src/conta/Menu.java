@@ -21,6 +21,18 @@ public class Menu {
 		
 		ContaController contas = new ContaController();
 		
+		ContaCorrente cc1 = new ContaCorrente(contas.gerarNumero(), 123, 1, "João da Silva", 1000f, 100.0f);
+        contas.cadastrar(cc1);
+
+        ContaCorrente cc2 = new ContaCorrente(contas.gerarNumero(), 124, 1, "Maria da Silva", 2000f, 100.0f);
+        contas.cadastrar(cc2);
+
+        ContaPoupanca cp1 = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Mariana dos Santos", 4000f, 12);
+        contas.cadastrar(cp1);
+
+        ContaPoupanca cp2 = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Juliana Ramos", 8000f, 15);
+        contas.cadastrar(cp2);
+		
 		/*Conta c1 = new Conta(1,123,1,"Jennifer", 100000.00f); não é possível instanciar objetos dessa classe, porque ela se tornou abstrata
 		c1.visualizar();*/
 		
@@ -122,47 +134,51 @@ public class Menu {
 					System.out.println(Cores.TEXT_YELLOW + "Buscar conta por número\n\n");
 					System.out.println("Digite o número da conta: ");
 	                numero = leia.nextInt();
+	                
 	                contas.procurarPorNumero(numero);
+	                
 	                keyPress();
 				}
 				case 4 -> {
 					System.out.println(Cores.TEXT_YELLOW + "Atualizar dados da conta\n\n");
 					System.out.println("Digite o número da conta: ");
 	                numero = leia.nextInt();
-
-	                tipo = 1;
-	                // condicional buscar na collection
-
-	                System.out.println("Digite o Numero da Agência: ");
-	                agencia = leia.nextInt();
-	                System.out.println("Digite o Nome do Titular: ");
-	                leia.skip("\\R?");
-	                titular = leia.nextLine();
-
-	                System.out.println("Digite o Saldo da Conta (R$): ");
-	                saldo = leia.nextFloat();
-
-	                // retornar tipo
-
-	                switch (tipo) {
-		                case 1 -> {
-		                    System.out.println("Digite o Limite de Crédito (R$): ");
-		                    limite = leia.nextFloat();
+	                
+	                if(contas.buscarNaCollection(numero) != null) {
+	                
+		                tipo = contas.retornaTipo(numero);
+		                // condicional buscar na collection
 	
-		                    // criar o objeto conta corrente
-		                }
-		                case 2 -> {
-		                    System.out.println("Digite o dia do Aniversario da Conta: ");
-		                    aniversario = leia.nextInt();
+		                System.out.println("Digite o Numero da Agência: ");
+		                agencia = leia.nextInt();
+		                System.out.println("Digite o Nome do Titular: ");
+		                leia.skip("\\R?");
+		                titular = leia.nextLine();
 	
-		                    // criar o objeto conta poupanca
-	
-		                }
-		                default -> {
-		                    System.out.println("Tipo de conta inválido!");
-		                }
-		              
-	               }
+		                System.out.println("Digite o Saldo da Conta (R$): ");
+		                saldo = leia.nextFloat();
+
+	                	switch (tipo) {
+			                case 1 -> {
+			                    System.out.println("Digite o Limite de Crédito (R$): ");
+			                    limite = leia.nextFloat();
+			                    contas.atualizar(new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
+			                    
+			                }
+			                case 2 -> {
+			                    System.out.println("Digite o dia do Aniversario da Conta: ");
+			                    aniversario = leia.nextInt();
+			                    contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
+		
+			                }
+			                default -> {
+			                    System.out.println("Tipo de conta inválido!");
+			                }
+		                
+	                	}
+	                	
+	               }else
+	            	   System.out.println("Conta não encontrada!");
 	                
 	                // fim do condicional buscar na collection
 					
@@ -172,6 +188,9 @@ public class Menu {
 					System.out.println(Cores.TEXT_YELLOW + "Apagar conta\n\n");
 					System.out.println("Digite o número da conta: ");
 	                numero = leia.nextInt();
+	                
+	                contas.deletar(numero);
+	                
 	                keyPress();
 				}
 				case 6 -> {
@@ -182,6 +201,9 @@ public class Menu {
 	                
 	                System.out.println("Digite o valor do Saque: ");
 	                valor = leia.nextFloat();
+	                
+	                contas.sacar(numero, valor);
+	      
 	                keyPress();    
 				}
 				case 7 -> {
@@ -192,6 +214,9 @@ public class Menu {
 	                
 	                System.out.println("Digite o valor do Depósito: ");
 	                valor = leia.nextFloat();
+	                
+	                contas.depositar(numero, valor);
+	                
 	                keyPress();    
 				}
 				case 8 -> {
@@ -205,6 +230,9 @@ public class Menu {
 	                    System.out.println("Digite o Valor da Transferência (R$): ");
 	                    valor = leia.nextFloat();
 	                } while (valor <= 0);
+	                
+	                contas.transferir(numero, numeroDestino, valor);
+	                
 	                keyPress();	
 				}
 				default -> {

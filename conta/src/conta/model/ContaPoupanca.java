@@ -2,30 +2,26 @@ package conta.model;
 
 public class ContaPoupanca extends Conta {
 	
-	private int diaAniversario;
+	private int aniversario;
 
-	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int diaAniversario) {
+	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int aniversario) {
 		super(numero, agencia, tipo, titular, saldo);
-		this.diaAniversario = diaAniversario;
+		this.aniversario = aniversario;
 	}
 
-	public int getDiaAniversario() {
-		return diaAniversario;
+	public int getaniversario() {
+		return aniversario;
 	}
 
-	public void setDiaAniversario(int diaAniversario) {
-		this.diaAniversario = diaAniversario;
+	public void setaniversario(int aniversario) {
+		this.aniversario = aniversario;
 	}
 	
 	@Override
 	public void visualizar() {
 		super.visualizar();
-		System.out.println("Aniversário da conta: " + this.diaAniversario);
+		System.out.println("Aniversário da conta: " + this.aniversario);
 	}
-	
-	
-	
-	
 	
 	
 }
